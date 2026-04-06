@@ -224,9 +224,3 @@ secret scanning detected and blocked the push. The credential was
 immediately rotated. This is documented here because it is a real 
 mistake that happens and the correct response is to rotate immediately, 
 not to hope nobody noticed.
-
----
-
----
-
-## Repo Structure
