@@ -14,6 +14,9 @@ dispatch:
   - macro_namespace: dbt
     search_order: ['energy_pipeline', 'dbt']
 
+on-run-start:
+  - "USE CATALOG energy"
+
 models:
   energy_pipeline:
     +persist_docs:
