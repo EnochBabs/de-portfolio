@@ -1,3 +1,9 @@
+{{ config(
+    materialized='table',
+    database='energy',
+    schema='gold'
+) }}
+
 with base as (
     select * from {{ ref('int_time_features') }}
 ),
