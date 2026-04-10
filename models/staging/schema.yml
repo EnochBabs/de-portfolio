@@ -1,0 +1,49 @@
+version: 2
+
+models:
+  - name: stg_carbon_intensity
+    description: "Cleaned carbon intensity data per UK region per 30-minute window"
+    columns:
+      - name: region_id
+        description: "Unique region identifier"
+        tests:
+          - not_null
+      - name: carbon_intensity_gco2_kwh
+        description: "Carbon intensity forecast in gCO2/kWh"
+        tests:
+          - not_null
+      - name: intensity_category
+        description: "Categorical intensity label"
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['very low', 'low', 'moderate', 'high', 'very high']
+      - name: region_type
+        description: "Whether region is granular or aggregate"
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['granular', 'aggregate']
+
+  - name: stg_generation_mix
+    description: "Cleaned generation mix data per region per fuel type per window"
+    columns:
+      - name: region_id
+        tests:
+          - not_null
+      - name: fuel_type
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['wind', 'solar', 'hydro', 'nuclear',
+                         'biomass', 'gas', 'coal', 'imports', 'other']
+      - name: generation_pct
+        tests:
+          - not_null
+      - name: fuel_category
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['renewable', 'low_carbon', 'fossil', 'imports', 'other']

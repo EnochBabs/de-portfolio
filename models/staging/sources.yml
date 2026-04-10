@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: energy_bronze
+    catalog: energy
+    schema: bronze
+    tables:
+      - name: carbon_intensity
+        description: "Raw carbon intensity data from National Grid Carbon Intensity API"
+      - name: generation_mix
+        description: "Raw generation mix data from National Grid Carbon Intensity API"
